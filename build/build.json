@@ -1,0 +1,6 @@
+{
+    "inputs": [
+        "person/person.proto",
+        "service/service.proto"
+    ]
+}

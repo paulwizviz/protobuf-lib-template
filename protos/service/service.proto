@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package services;
+
+option java_package = "com.example.paulwizviz";
+option go_package = "github.com/paulwizviz/protobuf-lib-template/go/pkg/service";
+
+import "google/protobuf/empty.proto";
+import "person/person.proto";
+
+service PersonsService {
+    rpc ListPerson(google.protobuf.Empty) returns (person.Person);
+}
