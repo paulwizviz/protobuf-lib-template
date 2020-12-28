@@ -1,2 +1,9 @@
 # macOS system file
 .DS_Store
+
+# ignore .envrc
+.envrc
+
+# Generated files
+java/*
+go/pkg/*
