@@ -13,20 +13,6 @@ type build struct {
 	Inputs []string `json:"inputs"`
 }
 
-func buildGo(wd string, input string) {
-
-	protocCmd := exec.Command("protoc", fmt.Sprintf("--proto_path=%s/protos", wd), fmt.Sprintf("--go_out=%s/go/pkg", wd), "--go_opt=paths=source_relative", fmt.Sprintf("%s/protos/%s", wd, input))
-	protocCmd.Stderr = os.Stderr
-
-	output, err := protocCmd.Output()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Println(output)
-
-}
-
 func gocompile(wd string, input string) {
 
 	protocCmd := exec.Command("protoc", fmt.Sprintf("--proto_path=%s/protos", wd), fmt.Sprintf("--go_out=%s/go/pkg", wd), "--go_opt=paths=source_relative", fmt.Sprintf("%s/protos/%s", wd, input))
@@ -63,7 +49,7 @@ func main() {
 	}
 
 	for _, input := range build.Inputs {
-		buildGo(wd, input)
+		gocompile(wd, input)
 		javacompile(wd, input)
 	}
 
