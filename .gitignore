@@ -4,6 +4,6 @@
 # ignore .envrc
 .envrc
 
-# Generated files
+# Generated files -- uncomment here
 java/*
 go/pkg/*
